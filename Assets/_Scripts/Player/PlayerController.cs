@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -62,11 +60,13 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         Debug.Log("Collision with " + collider.gameObject.name);
-        if (collider?.gameObject.GetComponent<Asteroid>())
-        {
-            //kill player
-            Destroy(gameObject);
-        }
 
+        if(collider.gameObject.GetComponent<IPickUp>() != null)
+        {
+            IPickUp pickedUpItem = collider.gameObject.GetComponent<IPickUp>();
+            pickedUpItem.Collect();
+            return;
+        }
+        Destroy(gameObject);
     }
 }

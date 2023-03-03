@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour
         if (other?.gameObject.GetComponent<Asteroid>())
         {
             //kill asteroid and projectile
+            Score.Instance.AddScore(1);
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -26,6 +24,7 @@ public class Score : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
+        OnScoreChanged?.Invoke(score);
     }
 
     public int GetScore()

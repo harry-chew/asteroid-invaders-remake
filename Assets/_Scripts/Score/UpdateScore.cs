@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -17,6 +14,7 @@ public class UpdateScore : MonoBehaviour
     }
     private void HandleOnScoreChange(int score)
     {
-        textMesh.text = "Score: {score}";
+        string scoreString = score.ToString();
+        textMesh.text = "Score: " + scoreString;
     }
 }
