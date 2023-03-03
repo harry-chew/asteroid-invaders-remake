@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Lives : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class Lives : MonoBehaviour
         if (remainingLives <= 0)
         {
             Debug.Log("Game Over");
-            //Go to hi-score screen
+            SceneManager.LoadScene("HiScore");
         }
     }
 
