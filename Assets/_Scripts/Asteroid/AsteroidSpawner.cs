@@ -6,13 +6,6 @@ public class AsteroidSpawner : MonoBehaviour
     public float spawnRate = 1f;
     public float spawnRadius = 5f;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Time.timeSinceLevelLoad % spawnRate < Time.deltaTime)

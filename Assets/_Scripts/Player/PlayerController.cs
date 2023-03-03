@@ -15,15 +15,15 @@ public class PlayerController : MonoBehaviour
     [Header("Physics")]
     public Rigidbody rb;
 
-    // Start is called before the first frame update
+    private Vector3 startPos;  
     void Start()
     {
+        startPos = transform.position;
         fireCooldown = 0.0f;
         isFiring = false;
         rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -67,6 +67,12 @@ public class PlayerController : MonoBehaviour
             pickedUpItem.Collect();
             return;
         }
-        Destroy(gameObject);
+        Death();
+    }
+
+    public void Death()
+    {
+        Lives.Instance.LoseLife();
+        transform.position = startPos;
     }
 }

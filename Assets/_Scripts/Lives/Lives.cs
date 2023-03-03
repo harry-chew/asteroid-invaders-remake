@@ -1,18 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Lives : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static event Action<int> OnLivesChanged;
+
+    //singltone
+    public static Lives Instance;
+    
+    [SerializeField] private int remainingLives = 3;
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    public void LoseLife()
+    {
+        remainingLives--;
+        CallOnLivesChanged();
+        if (remainingLives <= 0)
+        {
+            Debug.Log("Game Over");
+            //Go to hi-score screen
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddLife()
     {
-        
+        remainingLives++;
+        CallOnLivesChanged();
+    }
+
+    public void CallOnLivesChanged()
+    {
+        OnLivesChanged?.Invoke(remainingLives);
     }
 }

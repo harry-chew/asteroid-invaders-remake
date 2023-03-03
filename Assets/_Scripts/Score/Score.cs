@@ -4,7 +4,6 @@ using System;
 public class Score : MonoBehaviour
 {
     public static event Action<int> OnScoreChanged;
-    //singleton
     public static Score Instance;
     
     [SerializeField] private int score = 0;
@@ -21,6 +20,7 @@ public class Score : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
