@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    public GameObject asteroidPrefab;
-    public float spawnRate = 1f;
-    public float spawnRadius = 5f;
+
+    [SerializeField] private GameObject asteroidPrefab;
+    [SerializeField] private float spawnRate = 1f;
+    [SerializeField] private float spawnRadius = 5f;
     
     void Update()
     {

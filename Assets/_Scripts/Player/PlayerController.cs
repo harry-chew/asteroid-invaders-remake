@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     [Header("Movement")]
     public float speed = 10.0f;
 
     [Header("Shooting")]
-    public bool isFiring;
     public Transform firePoint;
     public GameObject projectile;
     public float fireRate = 0.5f;
@@ -18,24 +18,25 @@ public class PlayerController : MonoBehaviour
     private Vector3 startPos;  
     void Start()
     {
+        InitPlayer();
+    }
+
+
+    void Update()
+    {
+        HandlePlayerFire();
+    }
+
+    private void InitPlayer()
+    {
         startPos = transform.position;
         fireCooldown = 0.0f;
-        isFiring = false;
         rb = GetComponent<Rigidbody>();
     }
     
-    void Update()
+    private void HandlePlayerFire()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            isFiring = true;
-        }
-        else if(Input.GetButtonUp("Fire1"))
-        {
-            isFiring = false;
-        }
-
-        if (isFiring)
+        if (GameInput.Instance.GetFireInput())
         {
             fireCooldown -= Time.deltaTime;
             if (fireCooldown <= 0.0f)
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = GameInput.Instance.GetHorizontalInput();
         rb.AddForce(Vector3.right * horizontalInput * speed * Time.deltaTime);
     }
 
@@ -55,19 +56,6 @@ public class PlayerController : MonoBehaviour
     {
         fireCooldown = fireRate;
         Instantiate(projectile, firePoint.position, firePoint.rotation);
-    }
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        Debug.Log("Collision with " + collider.gameObject.name);
-
-        if(collider.gameObject.GetComponent<IPickUp>() != null)
-        {
-            IPickUp pickedUpItem = collider.gameObject.GetComponent<IPickUp>();
-            pickedUpItem.Collect();
-            return;
-        }
-        Death();
     }
 
     public void Death()
