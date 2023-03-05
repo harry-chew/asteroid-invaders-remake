@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 952719544083248412, guid: 476951061a0f257448904fbec2bd562a, type: 3}
       propertyPath: m_Constraints
-      value: 80
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 952719544083248413, guid: 476951061a0f257448904fbec2bd562a, type: 3}
       propertyPath: speed
@@ -652,7 +652,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.014675039, b: 0.03773582, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -769,14 +769,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619394800}
-  m_LocalRotation: {x: -0, y: -0.0044669053, z: -0, w: 0.99999005}
-  m_LocalPosition: {x: -12.41, y: 2.28, z: 0}
+  m_LocalRotation: {x: -0.10459674, y: 0.41178712, z: 0.047645424, w: 0.9040027}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2089157159}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -0.512, z: 0}
+  m_LocalEulerAnglesHint: {x: -13.2, y: 48.98, z: 0}
 --- !u!108 &619394803
 Light:
   m_ObjectHideFlags: 0
@@ -1168,6 +1168,8 @@ MonoBehaviour:
   asteroidPrefab: {fileID: 4895339645488518743, guid: 392fc0b216a1b4b48b61f8f37eb4dd5e, type: 3}
   spawnRate: 1
   spawnRadius: 5
+  minSize: 0.25
+  maxSize: 1.75
 --- !u!1 &1252899439
 GameObject:
   m_ObjectHideFlags: 0
