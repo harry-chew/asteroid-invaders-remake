@@ -17,4 +17,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HiScore.unity
     guid: d4f664e2ab347b845b5a4f4e4401d9c9
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 5665e698aae656947bf6ef71a7ad2c4b, type: 2}

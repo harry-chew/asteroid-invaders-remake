@@ -1,7 +1,11 @@
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
+    public static event Action OnPlayerShoot;
+    
+
 
     [Header("Movement")]
     public float speed = 10.0f;
@@ -56,6 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         fireCooldown = fireRate;
         Instantiate(projectile, firePoint.position, firePoint.rotation);
+        OnPlayerShoot?.Invoke();
     }
 
     public void Death()

@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class PlayerCollisions : MonoBehaviour
 {
+    public static event Action OnPlayerCollision;
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.GetComponent<IPickUp>() != null)
@@ -11,5 +13,6 @@ public class PlayerCollisions : MonoBehaviour
             return;
         }
         GetComponent<PlayerController>().Death();
+        OnPlayerCollision?.Invoke();
     }
 }
