@@ -8,7 +8,7 @@ public class ScorePickUp : MonoBehaviour, IPickUp
     public void Collect()
     {
         Score.Instance.AddScore(scoreToAdd);
-        Destroy(gameObject);
         OnPickUp?.Invoke();
+        Destroy(gameObject);
     }
 }

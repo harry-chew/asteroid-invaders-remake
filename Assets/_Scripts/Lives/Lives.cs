@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 public class Lives : MonoBehaviour
 {
     public static event Action<int> OnLivesChanged;
-
-    //singltone
+    
     public static Lives Instance;
     
     [SerializeField] private int remainingLives = 3;
@@ -22,13 +21,13 @@ public class Lives : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
     public void LoseLife()
     {
         remainingLives--;
         CallOnLivesChanged();
         if (remainingLives <= 0)
         {
-            Debug.Log("Game Over");
             SceneManager.LoadScene("HiScore");
         }
     }

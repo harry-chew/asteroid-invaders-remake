@@ -514,9 +514,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extraLifePickUpPrefab: {fileID: 8335541543594417224, guid: 6a6a3de21eb3d7b49854cb112c4400e6, type: 3}
-  extraLifeSpawnRate: 11
+  extraLifeSpawnRate: 25
   extraScorePickUpPrefab: {fileID: 8924816808367853098, guid: bfb83d096f77c6f4f8805709665cd66d, type: 3}
-  extraScoreSpawnRate: 11
+  extraScoreSpawnRate: 7
   spawnRadius: 5
 --- !u!1 &360079522
 GameObject:

@@ -5,8 +5,6 @@ public class PlayerController : MonoBehaviour, IObserver
 {
     public static event Action OnPlayerShoot;
     
-
-
     [Header("Movement")]
     public float speed = 10.0f;
 
@@ -20,14 +18,12 @@ public class PlayerController : MonoBehaviour, IObserver
     public Rigidbody rb;
 
     private Vector3 startPos;
-
-
+    
     private bool canControl;
     void Start()
     {
         InitPlayer();
     }
-
 
     void Update()
     {

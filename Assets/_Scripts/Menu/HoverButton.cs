@@ -7,9 +7,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     [SerializeField] private Color normalColour;
     [SerializeField] private Color hoverColour;
-
     [SerializeField] private TMPro.TextMeshProUGUI textMesh;
-
     [SerializeField] private MenuAudio menuAudio;
 
     void Start()

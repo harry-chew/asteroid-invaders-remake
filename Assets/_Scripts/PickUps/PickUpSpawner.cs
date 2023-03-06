@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PickUpSpawner : MonoBehaviour, IObserver
 {
-
     [Header("Extra Life")]
     [SerializeField] private GameObject extraLifePickUpPrefab;
     [SerializeField] private float extraLifeSpawnRate = 31f;
@@ -15,11 +14,11 @@ public class PickUpSpawner : MonoBehaviour, IObserver
     [Header("Spawn Settings")]
     [SerializeField] private float spawnRadius = 5f;
 
-
     private void Start()
     {
         GameManager.Instance.RegisterObserver(this);
     }
+    
     public void Notify()
     {
         StartCoroutine(SpawnExtraScorePickUp());
@@ -34,12 +33,13 @@ public class PickUpSpawner : MonoBehaviour, IObserver
         yield return new WaitForSeconds(extraScoreSpawnRate);
         StartCoroutine(SpawnExtraScorePickUp());
     }
+    
     private IEnumerator SpawnExtraLifePickUp()
     {
         Vector3 spawnPosition = transform.position + Random.insideUnitSphere * spawnRadius;
         spawnPosition.z = 0;
         Instantiate(extraLifePickUpPrefab, spawnPosition, Quaternion.identity);
-        yield return new WaitForSeconds(extraScoreSpawnRate);
+        yield return new WaitForSeconds(extraLifeSpawnRate);
         StartCoroutine(SpawnExtraLifePickUp());
     }
 }

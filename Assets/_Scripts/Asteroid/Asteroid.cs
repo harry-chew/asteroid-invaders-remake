@@ -16,7 +16,7 @@ public class Asteroid : MonoBehaviour
     private void InitialiseAsteroid()
     {
         float randomForce = GetRandomForce(minForce, maxForce);
-        Vector3 randomDirection = GetRandomStartingRotationVector3();
+        Vector3 randomDirection = GetRandomStartingTorqueVector3();
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.AddTorque(randomDirection * randomForce * multiplier);
     }
@@ -26,7 +26,7 @@ public class Asteroid : MonoBehaviour
         return Random.Range(minForce, maxForce);
     }
 
-public Vector3 GetRandomStartingRotationVector3()
+    public Vector3 GetRandomStartingTorqueVector3()
     {
         return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
     }

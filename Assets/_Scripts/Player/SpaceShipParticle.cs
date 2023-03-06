@@ -9,12 +9,15 @@ public class SpaceShipParticle : MonoBehaviour, IObserver
     {
         spaceShipParticle.Play();
     }
-
-    // Start is called before the first frame update
-    void Start()
+    
+    void Awake()
     {
         spaceShipParticle = GetComponent<ParticleSystem>();
         spaceShipParticle.Stop();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
         GameManager.Instance.RegisterObserver(this);
     }
 }
