@@ -38,13 +38,8 @@ public class GameManager : MonoBehaviour, ISubject
             Destroy(gameObject);
         }
     }
-
-    private void Start()
-    {
-        StartCoroutine(GameStart());
-    }
-
-    private IEnumerator GameStart()
+    
+    public IEnumerator GameStart()
     {
         yield return new WaitForSeconds(3f);
         NotifyObservers();

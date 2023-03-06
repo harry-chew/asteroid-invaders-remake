@@ -12,6 +12,7 @@ public class AsteroidSpawner : MonoBehaviour, IObserver
     [SerializeField] private float minSize = 0.75f;
     [SerializeField] private float maxSize = 1.55f;
 
+
     private void Start()
     {
         GameManager.Instance.RegisterObserver(this);

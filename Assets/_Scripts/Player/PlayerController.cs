@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IObserver
 {
     public static event Action OnPlayerShoot;
     
@@ -19,7 +19,10 @@ public class PlayerController : MonoBehaviour
     [Header("Physics")]
     public Rigidbody rb;
 
-    private Vector3 startPos;  
+    private Vector3 startPos;
+
+
+    private bool canControl;
     void Start()
     {
         InitPlayer();
@@ -33,13 +36,16 @@ public class PlayerController : MonoBehaviour
 
     private void InitPlayer()
     {
+        canControl = false;
         startPos = transform.position;
         fireCooldown = 0.0f;
         rb = GetComponent<Rigidbody>();
+        GameManager.Instance.RegisterObserver(this);
     }
     
     private void HandlePlayerFire()
     {
+        if (!canControl) return;
         if (GameInput.Instance.GetFireInput())
         {
             fireCooldown -= Time.deltaTime;
@@ -52,6 +58,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        HandlePlayerMove();
+    }
+
+    private void HandlePlayerMove()
+    {
+        if (!canControl) return;
+        
         float horizontalInput = GameInput.Instance.GetHorizontalInput();
         rb.AddForce(Vector3.right * horizontalInput * speed * Time.deltaTime);
     }
@@ -67,5 +80,10 @@ public class PlayerController : MonoBehaviour
     {
         Lives.Instance.LoseLife();
         transform.position = startPos;
+    }
+
+    public void Notify()
+    {
+        canControl = true;
     }
 }
