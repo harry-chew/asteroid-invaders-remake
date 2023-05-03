@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4895339645488518741}
   - component: {fileID: 4895339645488518740}
   - component: {fileID: -1913177550558190175}
-  - component: {fileID: 4098926023999284056}
   - component: {fileID: 1105435456045486330}
   m_Layer: 0
   m_Name: Asteroid
@@ -81,21 +80,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4098926023999284056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4895339645488518743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd498f2badd8df4babafd79837a2e60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionForce: 10
-  explosionRadius: 5
-  explosionSound: {fileID: 8300000, guid: 115833467d4597c48bd821261ec9df59, type: 3}
 --- !u!82 &1105435456045486330
 AudioSource:
   m_ObjectHideFlags: 0
@@ -106,7 +90,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6816287177182641542, guid: 94608fa284d32014db0778e23a88ac75, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2a31ddc02afaead49bf4e45b297d0c3d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

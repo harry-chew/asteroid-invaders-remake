@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour, IObserver
             {
                 Fire();
             }
+        } else
+        {
+            fireCooldown = 0.0f;
         }
     }
 

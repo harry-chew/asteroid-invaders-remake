@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class GameInput : MonoBehaviour
 {
     public static GameInput Instance;
+    
 
     private void Awake()
     {
@@ -16,6 +18,7 @@ public class GameInput : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     public float GetHorizontalInput()
     {
         return Input.GetAxis("Horizontal");

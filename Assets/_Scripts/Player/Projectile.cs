@@ -14,10 +14,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other?.gameObject.GetComponent<Asteroid>())
+        if (other.gameObject.GetComponent<Asteroid>())
         {
             //kill asteroid and projectile
             Score.Instance.AddScore(1);
+            AudioManager.Instance.PlayAudioClip(1);
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

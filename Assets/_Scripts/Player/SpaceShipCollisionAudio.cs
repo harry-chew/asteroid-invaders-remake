@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpaceShipCollisionAudio : MonoBehaviour
@@ -16,6 +13,11 @@ public class SpaceShipCollisionAudio : MonoBehaviour
     private void OnEnable()
     {
         PlayerCollisions.OnPlayerCollision += HandlePlayerCollisionAudio;
+    }
+
+    private void OnDisable()
+    {
+        PlayerCollisions.OnPlayerCollision -= HandlePlayerCollisionAudio;
     }
 
     private void HandlePlayerCollisionAudio()
