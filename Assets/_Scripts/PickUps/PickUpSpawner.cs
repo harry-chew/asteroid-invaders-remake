@@ -18,7 +18,11 @@ public class PickUpSpawner : MonoBehaviour, IObserver
     {
         GameManager.Instance.RegisterObserver(this);
     }
-    
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.RemoveObserver(this);
+    }
     public void Notify()
     {
         StartCoroutine(SpawnExtraScorePickUp());

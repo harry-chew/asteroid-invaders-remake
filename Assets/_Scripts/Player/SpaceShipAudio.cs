@@ -14,6 +14,11 @@ public class SpaceShipAudio : MonoBehaviour, IObserver
         _audioSource.clip = engineStartClip;
         GameManager.Instance.RegisterObserver(this);
     }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.RemoveObserver(this);
+    }
     public void Notify()
     {
         StartCoroutine(StartEngine());

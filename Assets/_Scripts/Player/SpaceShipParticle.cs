@@ -20,4 +20,9 @@ public class SpaceShipParticle : MonoBehaviour, IObserver
     {
         GameManager.Instance.RegisterObserver(this);
     }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.RemoveObserver(this);
+    }
 }

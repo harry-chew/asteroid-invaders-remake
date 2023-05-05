@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
     [SerializeField] private int score = 0;
 
     private void Awake()
-    {
+    {   
         if (Instance == null)
         {
             Instance = this;
@@ -19,8 +19,9 @@ public class Score : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
-    
+
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
@@ -30,5 +31,11 @@ public class Score : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    public void ResetScore()
+    {
+        score = 0;
+        OnScoreChanged?.Invoke(score);
     }
 }

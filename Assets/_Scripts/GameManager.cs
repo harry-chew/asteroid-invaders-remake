@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour, ISubject
     public IEnumerator GameStart()
     {
         yield return new WaitForSeconds(3f);
+        Score.Instance.ResetScore();
         NotifyObservers();
     }
 }
